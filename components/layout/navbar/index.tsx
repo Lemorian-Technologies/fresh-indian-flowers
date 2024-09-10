@@ -34,7 +34,7 @@ export async function Navbar() {
         </div>
         <div>
           {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-cente ;">
+            <ul className="hidden gap-6 text-sm md:flex md:items-center">
               {menu.map((item: Menu) => (
                 <li key={item.title}>
                   <Link
@@ -49,7 +49,7 @@ export async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div className="hidden justify-center md:flex w-96 ">
+        <div className="hidden justify-center md:flex w-1/3 ">
           <Suspense fallback={<SearchSkeleton />}>
             <Search />
           </Suspense>
