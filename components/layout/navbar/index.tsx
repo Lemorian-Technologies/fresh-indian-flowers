@@ -16,13 +16,13 @@ export async function Navbar() {
   const dropdownMenuItems = fetchedMenu.slice(5);
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6 bg-white">
+    <nav className="relative flex items-center justify-between bg-white p-4 lg:px-6">
       <div className="block flex-none lg:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={fetchedMenu} />
         </Suspense>
       </div>
-      <div className="flex w-full items-centre">
+      <div className="items-centre flex w-full">
         <div className="flex">
           <Link
             href="/"
@@ -30,19 +30,16 @@ export async function Navbar() {
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
             <LogoSquare />
-            {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div> */}
           </Link>
         </div>
         <div className="relative ml-4 mr-4 flex flex-grow">
-          <ul className="hidden gap-6 text-sm lg:flex md:items-center">
+          <ul className="hidden gap-6 text-sm md:items-center lg:flex">
             {menuToDisplay.map((item: Menu) => (
               <li key={item.title}>
                 <Link
                   href={item.path}
                   prefetch={true}
-                  className="text-justify align-middle text-neutral-500 underline-offset-4 hover:text-black hover:underline  "
+                  className="text-justify align-middle text-neutral-500 underline-offset-4 hover:text-black hover:underline"
                 >
                   {item.title}
                 </Link>
@@ -50,16 +47,16 @@ export async function Navbar() {
             ))}
             {dropdownMenuItems.length > 0 && (
               <li className="group relative">
-                <button className="text-neutral-500 underline-offset-4 hover:text-black hover:underline  ">
+                <button className="text-neutral-500 underline-offset-4 hover:text-black hover:underline">
                   More
                 </button>
-                <ul className="absolute left-1/2 top-full z-50 hidden w-48 -translate-x-1/2 transform bg-white shadow-lg group-hover:block ">
+                <ul className="absolute left-1/2 top-full z-50 hidden w-48 -translate-x-1/2 transform bg-white shadow-lg group-hover:block">
                   {dropdownMenuItems.map((item: Menu) => (
                     <li key={item.title}>
                       <Link
                         href={item.path}
                         prefetch={true}
-                        className="block px-4 py-2 text-sm text-neutral-500 hover:bg-gray-100  "
+                        className="block px-4 py-2 text-sm text-neutral-500 hover:bg-gray-100"
                       >
                         {item.title}
                       </Link>
@@ -70,7 +67,7 @@ export async function Navbar() {
             )}
           </ul>
         </div>
-        <div className="flex  items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="mr-4 hidden justify-center md:flex">
             <Suspense fallback={<SearchSkeleton />}>
               <Search />
