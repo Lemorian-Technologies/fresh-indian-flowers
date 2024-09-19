@@ -19,9 +19,9 @@ export const Card: React.FC<CardProps> = ({ title, description, link, cardImage 
           <p className="mb-4 flex-grow text-base leading-6 text-black">{description}</p>
           <a
             href={link}
-            className="inline-flex items-center self-center rounded-full bg-custom-green px-4 py-2 text-white no-underline hover:text-lg focus:outline-none"
+            className="inline-flex sm:text-base text-sm items-center self-center rounded-full bg-custom-green px-4 py-2 text-white no-underline hover:text-lg focus:outline-none"
           >
-            Buy Now <span className="sr-only">about this is some title</span>
+            Buy Now
           </a>
         </div>
       </div>
