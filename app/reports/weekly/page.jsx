@@ -1,11 +1,11 @@
 'use client';
 
-import moment from 'moment';
+import moment from 'moment-timezone';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
+import fileDownload from 'react-file-download';
+moment.tz.setDefault('America/New_York');
 
 const DateRangePicker = () => {
   const [startDate, setStartDate] = useState(null);
@@ -24,18 +24,27 @@ const DateRangePicker = () => {
   async function listOrders() {
     if (!startDate || !endDate) return;
 
-    
-  
-  const formattedStartDate = moment(startDate).format('YYYY-MM-DDTHH:mm:ss');
-  const formattedEndDate = moment(endDate).format('YYYY-MM-DDTHH:mm:ss');
-  
-    const response = await fetch(`http://localhost:3000/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`);
-    
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-    } else {
-      console.error('Failed to fetch data');
+    // Adjust start date to midnight
+    const startOfDay = moment(startDate);
+
+    // Adjust end date to the last minute of the day
+    const endOfDay = moment(endDate).endOf('day');
+    // Format the dates
+    const formattedStartDate = startOfDay.format('');
+    const formattedEndDate = endOfDay.format('');
+
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`
+      );
+      if (response.ok) {
+        const fileBlob = await response.blob();
+        fileDownload(fileBlob, 'filename.csv');
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (e) {
+      console.log('download-exception,' + e);
     }
   }
   const handleClick = () => {
