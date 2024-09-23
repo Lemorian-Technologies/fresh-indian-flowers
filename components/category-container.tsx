@@ -8,7 +8,7 @@ export default async function CategoryContainer() {
   const cardProducts = [...products];
 
   return (
-    <section className="mx-auto grid w-full grid-cols-1 gap-6 p-6 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+    <section className="mx-auto grid w-full grid-cols-2 gap-6 p-1 pt-6 sm:p-6 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
       {cardProducts.map((product, index) => (
         <Card
           key={`${product.handle}`}

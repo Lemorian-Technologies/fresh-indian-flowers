@@ -78,16 +78,16 @@ export default async function Footer() {
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
           <p>
             Copyright © 2020{' '}
-            <a className="hover:underline" href="https://indian-flowers.com/">
+            {/* <a className="hover:underline" href="https://indian-flowers.com/">
               {' '}
               Indian Flowers
-            </a>{' '}
+            </a>{' '} */}
             All rights reserved.
           </p>
           <p>
-            <a className="hover:underline" href="https://indian-flowers.com/privacy-policy/">
+            {/* <a className="hover:underline" href="https://indian-flowers.com/privacy-policy/">
               Privacy Policy
-            </a>
+            </a> */}
           </p>
           <p className="md:ml-auto">
             <a className="text-black">Created by Lemorian.tech</a>

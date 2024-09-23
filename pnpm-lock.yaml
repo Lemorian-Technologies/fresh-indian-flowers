@@ -18,8 +18,11 @@ importers:
         specifier: ^1.0.137
         version: 1.0.149
       '@wix/ecom':
-        specifier: ^1.0.692
+        specifier: ^1.0.733
         version: 1.0.733
+      '@wix/events':
+        specifier: ^1.0.278
+        version: 1.0.278
       '@wix/members':
         specifier: ^1.0.101
         version: 1.0.101
@@ -47,15 +50,24 @@ importers:
       moment:
         specifier: ^2.30.1
         version: 2.30.1
+      moment-timezone:
+        specifier: ^0.5.45
+        version: 0.5.45
       next:
         specifier: 15.0.0-canary.113
         version: 15.0.0-canary.113(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730)
       react:
         specifier: 19.0.0-rc-3208e73e-20240730
         version: 19.0.0-rc-3208e73e-20240730
+      react-datepicker:
+        specifier: ^7.3.0
+        version: 7.3.0(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730)
       react-dom:
         specifier: 19.0.0-rc-3208e73e-20240730
         version: 19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730)
+      react-file-download:
+        specifier: ^0.3.5
+        version: 0.3.5
       react-toastify:
         specifier: ^10.0.5
         version: 10.0.5(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730)
@@ -537,6 +549,57 @@ packages:
   '@wix/ecom_validations@1.0.31':
     resolution: {integrity: sha512-wozi+y8fL2NvbXSwHoqKEBrDGSDyhgTljXoZf5e5oG6ythMSs29ruBnK65noroLyGw+HDjhQP9kBNB/GH8oF/w==}
 
+  '@wix/events@1.0.278':
+    resolution: {integrity: sha512-1JriXh03JwytAgne6hh+0nwANZnCDQrP49Wxl1BmQKIri0afaQLkFmY8wQ4ymX3beaZEmZBiGNO3BGA4tIcmpw==}
+
+  '@wix/events_categories@1.0.41':
+    resolution: {integrity: sha512-E0ggdE1x+2dk4jITm/8OGfSSvC5jX381QlW8TKe9axSDuf2Naq8DYESUxN1I4xTylkWnk6b6ZhDSHqfQlQmjOA==}
+
+  '@wix/events_forms@1.0.43':
+    resolution: {integrity: sha512-+y+byfn/iyb2qYqUg7XdS5xhz4U+bSXpY9gROdazrF5vuiPHdgqXOX1SP/WoijSQ1PYhV+wNlk+dWm61xjO/EQ==}
+
+  '@wix/events_guests@1.0.55':
+    resolution: {integrity: sha512-ID3OlrsqH3ciqqA2YaAOzKSpkxZcluKeStFKhWvWONyThgjc9e0gA0LIiG2FNvoSv8lr6GZ4v2XbWco/lSrkvA==}
+
+  '@wix/events_notifications@1.0.29':
+    resolution: {integrity: sha512-ZXA2a+hZJHkfT1uzw1ZpEr391E5JwcxxzTU6+OxhnIih1IXop5muUpxmRZRQhSvMfWCnr9NV+j93NE73plrAMg==}
+
+  '@wix/events_orders@1.0.44':
+    resolution: {integrity: sha512-jeqTrDEvecxTewqejvU9lC7VLa0wr3Wgtn7jEEHMFFDVnvpYkUHfLD/P3MSlJkhHHgAAwxRYCmPHzmdtJCj10A==}
+
+  '@wix/events_policies@1.0.40':
+    resolution: {integrity: sha512-fV8eCEUV8NAeki7CzUKJ1vw+zPXQ7v8orkI4DilpinaCVHu0DshqcibE/YUAOEg54MFEYba14LPrrJzavCjy/w==}
+
+  '@wix/events_ricos@1.0.4':
+    resolution: {integrity: sha512-iz3M8v1WhtUZ9r/rgxZpOkT7AX6fcyhkAHGjVtBHHCUjQAwDDlXNZ1sIEN5xEjKmsbXckemz7JkAzPdjeqcO/Q==}
+
+  '@wix/events_rsvp-v-2@1.0.3':
+    resolution: {integrity: sha512-DUpOjvTVU8OR8uPiDJNC6vUdvCCeyJcX48VDwGtu/k6Qs+5GPuPKDrC8nuU8oz3bYKHVttQ5RevMuuq7k+9riw==}
+
+  '@wix/events_rsvp@1.0.40':
+    resolution: {integrity: sha512-olY4991mUsSU9NgU0WF8GxWABAIVr70LkWfLgztmnBS7213aiWQTWtTI4pWyEsTb9pgdsu6f27XHCiOqGQWobQ==}
+
+  '@wix/events_schedule-bookmarks@1.0.31':
+    resolution: {integrity: sha512-KhVErtsGM+VxfYiQ80b1vmuMMdNRUU5ZHi1aG4/bD2FleQ9i/4I+K4LZUmYD5sq+WsHtirNyZWBYn+kjb9zU+g==}
+
+  '@wix/events_schedule@1.0.35':
+    resolution: {integrity: sha512-tUmWnVknZAxUAHjZhD8+0qfGsXJKgh+w6MvILvRu32nBlWLKiNpFwgyRcZ/YzuK2u9ac/dADuj2cvkcMb4trzQ==}
+
+  '@wix/events_staff-members@1.0.12':
+    resolution: {integrity: sha512-yOMbgGYm3erkjsxWwyZZWyMgs+m1DjamULTSAPLM9rpuhmZI5b4x0/oIppM9cAz4rCJJwi7qU388VH36a0JCVQ==}
+
+  '@wix/events_ticket-definitions-v-2@1.0.55':
+    resolution: {integrity: sha512-yRFoJ2UudvB2pVzuIiOJBQ6czx4W2nUsVypvkal4iYqMpH/AWdul9BnJM2OrMN0BaXfMlvYWRF9bPCgALq5lxA==}
+
+  '@wix/events_ticket-definitions@1.0.45':
+    resolution: {integrity: sha512-DRX0bfLT3gbdAKrmcfDS0DBIet3e+mHux5RRLqGoEa2z9R/qtvSJVpCObqMAGK+p1BBSPz9sxbD9kswYqo2hXw==}
+
+  '@wix/events_tickets@1.0.40':
+    resolution: {integrity: sha512-4R/3cbktvnJ4vLZb7jk/Cj/0ScWfMhHMUC+75/lkAa64G9QvSO3wdy5dFDm6w1SZO+Vfbe+1nnOGORdOQbBhAw==}
+
+  '@wix/events_wix-events-v-2@1.0.52':
+    resolution: {integrity: sha512-pN0RMytaoPpJmytHtnfXNm3NQel1Q3Cj8D2buaA/n4NH+ZiZZhtRg5nWfE4RFOIYIUwGOHN8R0SMGM1v2U32jA==}
+
   '@wix/filter-builder@1.0.76':
     resolution: {integrity: sha512-lGx3kvtTRIoDMfhb+BKhTf6WwO5BSSOg0Vz8mhWXaPMPrilzvwvoaaTSwAc+jvHD0jaFcAJEcgXpr75Dndb5xQ==}
 
@@ -788,6 +851,9 @@ packages:
   date-and-time@3.5.0:
     resolution: {integrity: sha512-JU4y0CIzAU+Cy2GOToby243B54elP8JdPidj4xHJPO4rlResPXKujRJp/MJzFeMWIdTbQ/A0xgd6guipi1mYIw==}
 
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+
   deep-for-each@3.0.0:
     resolution: {integrity: sha512-pPN+0f8jlnNP+z90qqOdxGghJU5XM6oBDhvAR+qdQzjCg5pk/7VPPvKK1GqoXEFkHza6ZS+Otzzvmr0g3VUaKw==}
 
@@ -921,6 +987,9 @@ packages:
     resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
     engines: {node: '>=14'}
 
+  js-tokens@4.0.0:
+    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
@@ -959,6 +1028,10 @@ packages:
   long@4.0.0:
     resolution: {integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==}
 
+  loose-envify@1.4.0:
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
+
   lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
 
@@ -980,6 +1053,9 @@ packages:
   minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
+
+  moment-timezone@0.5.45:
+    resolution: {integrity: sha512-HIWmqA86KcmCAhnMAN0wuDOARV/525R2+lOLotuGFzn4HO+FH+/645z2wx0Dt3iDv6/p61SIvKnDstISainhLQ==}
 
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
@@ -1173,6 +1249,9 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prop-types@15.8.1:
+    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
+
   querystring@0.2.1:
     resolution: {integrity: sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==}
     engines: {node: '>=0.4.x'}
@@ -1181,10 +1260,29 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  react-datepicker@7.3.0:
+    resolution: {integrity: sha512-EqRKLAtLZUTztiq6a+tjSjQX9ES0Xd229JPckAtyZZ4GoY3rtvNWAzkYZnQUf6zTWT50Ki0+t+W9VRQIkSJLfg==}
+    peerDependencies:
+      react: ^16.9.0 || ^17 || ^18
+      react-dom: ^16.9.0 || ^17 || ^18
+
   react-dom@19.0.0-rc-3208e73e-20240730:
     resolution: {integrity: sha512-jspKji5vQTTlFY7zFGh0VB+rZV+5FweCQkYxtLoPZvc5ZH6vEf1n8d+4h9YqNqF8nnhFkcHO8XLtKTtTyVGSXA==}
     peerDependencies:
       react: 19.0.0-rc-3208e73e-20240730
+
+  react-file-download@0.3.5:
+    resolution: {integrity: sha512-gP867caQCviTw2IUQTMTOFgHn2A71zoLYzHr4KkOI0gkwc1m4ceb/dxNOkG4yB8Hent2+G3f4qbr9Rzb9yZouw==}
+    deprecated: 'WARNING: This project has been renamed to js-file-download. Use js-file-download instead.'
+
+  react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-onclickoutside@6.13.1:
+    resolution: {integrity: sha512-LdrrxK/Yh9zbBQdFbMTXPp3dTSN9B+9YJQucdDu3JNKRrbdU+H+/TVONJoWtOwy4II8Sqf1y/DTI6w/vGPYW0w==}
+    peerDependencies:
+      react: ^15.5.x || ^16.x || ^17.x || ^18.x
+      react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
 
   react-toastify@10.0.5:
     resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
@@ -1956,6 +2054,137 @@ snapshots:
       '@wix/sdk-runtime': 0.3.19
       '@wix/sdk-types': 1.12.0
 
+  '@wix/events@1.0.278':
+    dependencies:
+      '@wix/events_categories': 1.0.41
+      '@wix/events_forms': 1.0.43
+      '@wix/events_guests': 1.0.55
+      '@wix/events_notifications': 1.0.29
+      '@wix/events_orders': 1.0.44
+      '@wix/events_policies': 1.0.40
+      '@wix/events_ricos': 1.0.4
+      '@wix/events_rsvp': 1.0.40
+      '@wix/events_rsvp-v-2': 1.0.3
+      '@wix/events_schedule': 1.0.35
+      '@wix/events_schedule-bookmarks': 1.0.31
+      '@wix/events_staff-members': 1.0.12
+      '@wix/events_ticket-definitions': 1.0.45
+      '@wix/events_ticket-definitions-v-2': 1.0.55
+      '@wix/events_tickets': 1.0.40
+      '@wix/events_wix-events-v-2': 1.0.52
+
+  '@wix/events_categories@1.0.41':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_forms@1.0.43':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_guests@1.0.55':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_notifications@1.0.29':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_orders@1.0.44':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_policies@1.0.40':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_ricos@1.0.4':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_rsvp-v-2@1.0.3':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_rsvp@1.0.40':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_schedule-bookmarks@1.0.31':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_schedule@1.0.35':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_staff-members@1.0.12':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_ticket-definitions-v-2@1.0.55':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_ticket-definitions@1.0.45':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_tickets@1.0.40':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
+  '@wix/events_wix-events-v-2@1.0.52':
+    dependencies:
+      '@wix/metro-runtime': 1.1808.0
+      '@wix/motion-edm-autogen-query-wrapper': 1.0.102
+      '@wix/sdk-runtime': 0.3.19
+      '@wix/sdk-types': 1.12.0
+
   '@wix/filter-builder@1.0.76':
     dependencies:
       '@babel/runtime': 7.25.6
@@ -2400,6 +2629,8 @@ snapshots:
 
   date-and-time@3.5.0: {}
 
+  date-fns@3.6.0: {}
+
   deep-for-each@3.0.0:
     dependencies:
       lodash.isplainobject: 4.0.6
@@ -2518,6 +2749,8 @@ snapshots:
 
   js-cookie@3.0.5: {}
 
+  js-tokens@4.0.0: {}
+
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
@@ -2542,6 +2775,10 @@ snapshots:
 
   long@4.0.0: {}
 
+  loose-envify@1.4.0:
+    dependencies:
+      js-tokens: 4.0.0
+
   lower-case@2.0.2:
     dependencies:
       tslib: 2.7.0
@@ -2560,6 +2797,10 @@ snapshots:
       brace-expansion: 2.0.1
 
   minipass@7.1.2: {}
+
+  moment-timezone@0.5.45:
+    dependencies:
+      moment: 2.30.1
 
   moment@2.30.1: {}
 
@@ -2686,14 +2927,39 @@ snapshots:
 
   prettier@3.3.3: {}
 
+  prop-types@15.8.1:
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+
   querystring@0.2.1: {}
 
   queue-microtask@1.2.3: {}
+
+  react-datepicker@7.3.0(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730):
+    dependencies:
+      '@floating-ui/react': 0.26.24(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730)
+      clsx: 2.1.1
+      date-fns: 3.6.0
+      prop-types: 15.8.1
+      react: 19.0.0-rc-3208e73e-20240730
+      react-dom: 19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730)
+      react-onclickoutside: 6.13.1(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730)
 
   react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730):
     dependencies:
       react: 19.0.0-rc-3208e73e-20240730
       scheduler: 0.25.0-rc-3208e73e-20240730
+
+  react-file-download@0.3.5: {}
+
+  react-is@16.13.1: {}
+
+  react-onclickoutside@6.13.1(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730):
+    dependencies:
+      react: 19.0.0-rc-3208e73e-20240730
+      react-dom: 19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730)
 
   react-toastify@10.0.5(react-dom@19.0.0-rc-3208e73e-20240730(react@19.0.0-rc-3208e73e-20240730))(react@19.0.0-rc-3208e73e-20240730):
     dependencies:

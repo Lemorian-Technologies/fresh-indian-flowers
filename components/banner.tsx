@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import banner4 from 'assets/images/house-warming.png';
 import banner6 from 'assets/images/leafs.png';
 import banner2 from 'assets/images/pooja-items-mullai.png';
@@ -45,7 +46,7 @@ function Banner() {
 
   return (
     <div className="relative flex justify-center pt-2">
-      <div className="relative w-full overflow-hidden rounded-md" onClick={handleBannerClick}>
+      <div className="relative w-11/12 overflow-hidden rounded-md" onClick={handleBannerClick}>
         <div
           className="flex w-full items-center transition-transform duration-1000"
           style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
@@ -63,17 +64,21 @@ function Banner() {
       </div>
       <button
         aria-label="Previous Image"
-        className="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-custom-green p-3 shadow-lg transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-custom-green"
+        className="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-custom-green p-1 shadow-lg transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-custom-green sm:p-3"
         onClick={goToPrevImage}
       >
-        <span className="text-lg">&lt;</span>
+        <span>
+          <ArrowLeftIcon className="h-3" />
+        </span>
       </button>
       <button
         aria-label="Next Image"
-        className="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-custom-green p-3 shadow-lg transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-custom-green"
+        className="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-custom-green p-1 shadow-lg transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-custom-green sm:p-3"
         onClick={goToNextImage}
       >
-        <span className="text-lg">&gt;</span>
+        <span>
+          <ArrowRightIcon className="h-3" />
+        </span>
       </button>
       <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-2">
         {banners.map((_, index) => (
