@@ -29,7 +29,7 @@ function LoginBar() {
 
   async function login() {
     const data = myWixClient.auth.generateOAuthData(
-      `${window.location.origin}/login-callback`,
+      `https://2eab-49-204-234-214.ngrok-free.app/login-callback`,
       window.location.href
     );
     localStorage.setItem('oauthRedirectData', JSON.stringify(data));

@@ -21,6 +21,8 @@
     "@wix/members": "^1.0.101",
     "@wix/redirects": "^1.0.51",
     "@wix/sdk": "^1.12.12",
+    "@wix/site": "^1.16.0",
+    "@wix/site-members": "^1.14.0",
     "@wix/stores": "^1.0.179",
     "clsx": "^2.1.1",
     "date-and-time": "^3.5.0",

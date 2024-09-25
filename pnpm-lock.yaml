@@ -32,6 +32,12 @@ importers:
       '@wix/sdk':
         specifier: ^1.12.12
         version: 1.12.14
+      '@wix/site':
+        specifier: ^1.16.0
+        version: 1.16.0
+      '@wix/site-members':
+        specifier: ^1.14.0
+        version: 1.14.0
       '@wix/stores':
         specifier: ^1.0.179
         version: 1.0.215
@@ -695,6 +701,12 @@ packages:
 
   '@wix/sdk@1.12.14':
     resolution: {integrity: sha512-HZfrZiCOhj/T6vRgz5CFBek17s+MElz8EZ/U8UJOl/7xTeKdl8vkNIhmxJSLRzhH8zEm5LCt0XRcwTciTVsiCg==}
+
+  '@wix/site-members@1.14.0':
+    resolution: {integrity: sha512-cYmaPhrxpn8VzyJGrK1GXboPnVoCKzp1djMt/7eyeGOF+dhYThJkQQ+lXVYD6tO7dbvOQhfk9WjDFHr0rN5hng==}
+
+  '@wix/site@1.16.0':
+    resolution: {integrity: sha512-W0Aa3H9s2G9I3qw1oHVxa+9RxPnM9wgMAydIQQoVK+GwOMLlQzxLkvS2xfJaCbtTHjL9XJSPeQoKRTXOlLkmZw==}
 
   '@wix/stores@1.0.215':
     resolution: {integrity: sha512-HRkXVflsV02TnXw0q+XqAz1DDPBXAJNh35qVmG++HLcv6hsO3CzDngsPSlw4rAK/N8sHROtM5+cYHxjxS6RLhA==}
@@ -2409,6 +2421,15 @@ snapshots:
       type-fest: 4.26.1
     optionalDependencies:
       graphql: 16.9.0
+
+  '@wix/site-members@1.14.0':
+    dependencies:
+      '@babel/runtime': 7.25.6
+      '@wix/sdk-runtime': 0.3.19
+
+  '@wix/site@1.16.0':
+    dependencies:
+      '@babel/runtime': 7.25.6
 
   '@wix/stores@1.0.215':
     dependencies:

@@ -1,15 +1,26 @@
 'use client';
 
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import fileDownload from 'react-file-download';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 moment.tz.setDefault('America/New_York');
 
 const DateRangePicker = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://2eab-49-204-234-214.ngrok-free.app/api/user-role`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -23,28 +34,26 @@ const DateRangePicker = () => {
   };
   async function listOrders() {
     if (!startDate || !endDate) return;
-
-    // Adjust start date to midnight
     const startOfDay = moment(startDate);
-
-    // Adjust end date to the last minute of the day
     const endOfDay = moment(endDate).endOf('day');
-    // Format the dates
     const formattedStartDate = startOfDay.format('');
     const formattedEndDate = endOfDay.format('');
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`
+        `https://2eab-49-204-234-214.ngrok-free.app/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`
       );
       if (response.ok) {
         const fileBlob = await response.blob();
         fileDownload(fileBlob, 'filename.csv');
+        toast.success('Download completed successfully!');
       } else {
         console.error('Failed to fetch data');
+        toast.error('Failed to fetch data. Please try again.');
       }
     } catch (e) {
       console.log('download-exception,' + e);
+      toast.error('An error occurred during download.');
     }
   }
   const handleClick = () => {
@@ -53,6 +62,16 @@ const DateRangePicker = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        pauseOnFocusLoss
+      />
       <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-md">
         <h1 className="mb-6 text-center text-2xl font-bold">Select Date Range</h1>
         <div className="mb-4">
@@ -87,7 +106,7 @@ const DateRangePicker = () => {
               {endDate.toLocaleDateString('fr-FR')}
             </p>
           )}
-        </div>{' '}
+        </div>
         <button
           onClick={handleClick}
           className="mt-6 w-full rounded-md bg-custom-green px-4 py-2 font-semibold text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-custom-green"

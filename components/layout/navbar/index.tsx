@@ -1,5 +1,6 @@
 import CartModal from 'components/cart/modal';
 import LogoSquare from 'components/logo-square';
+import SigninButton from 'components/signin-button';
 import { getMenu } from 'lib/wix';
 import { Menu } from 'lib/wix/types';
 import Link from 'next/link';
@@ -22,7 +23,7 @@ export async function Navbar() {
           <MobileMenu menu={fetchedMenu} />
         </Suspense>
       </div>
-      <div className="items-centre flex w-full">
+      <div className="flex w-full items-center">
         <div className="flex">
           <Link
             href="/"
@@ -74,6 +75,9 @@ export async function Navbar() {
             </Suspense>
           </div>
           <CartModal />
+          <Link href="/login" className="ml-4">
+            <SigninButton onClick={undefined} />
+          </Link>
         </div>
       </div>
     </nav>
