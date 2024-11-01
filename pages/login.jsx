@@ -1,9 +1,8 @@
 'use client';
-import Cookies from 'js-cookie';
-import { useEffect, useState } from 'react';
-
 import { members } from '@wix/members';
 import { createClient, OAuthStrategy } from '@wix/sdk';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 
 const myWixClient = createClient({
   modules: { members },
@@ -13,52 +12,72 @@ const myWixClient = createClient({
   })
 });
 
-export default function login() {
+export default function LoginPage() {
   return <LoginBar />;
 }
 
 function LoginBar() {
   const [member, setMember] = useState(null);
-
-  async function fetchMember() {
-    const { member } = myWixClient.auth.loggedIn()
-      ? await myWixClient.members.getCurrentMember()
-      : {};
-    setMember(member || undefined);
-  }
-
-  async function login() {
-    const data = myWixClient.auth.generateOAuthData(
-      `https://2eab-49-204-234-214.ngrok-free.app/login-callback`,
-      window.location.href
-    );
-    localStorage.setItem('oauthRedirectData', JSON.stringify(data));
-    const { authUrl } = await myWixClient.auth.getAuthUrl(data);
-    window.location = authUrl; // wix auth will send the user back to the callback page (login-callback.js)
-  }
-
-  async function logout() {
-    const { logoutUrl } = await myWixClient.auth.logout(window.location.href);
-    Cookies.remove('session');
-    window.location = logoutUrl;
-  }
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchMember = async () => {
+      try {
+        if (myWixClient.auth.loggedIn()) {
+          const { member } = await myWixClient.members.getCurrentMember();
+          setMember(member || undefined);
+        }
+      } catch (err) {
+        setError('Failed to fetch member data');
+        console.error(err);
+      }
+    };
     fetchMember();
   }, []);
 
+  const login = async () => {
+    try {
+      const data = myWixClient.auth.generateOAuthData(
+        `https://fa6f-49-204-234-214.ngrok-free.app/login-callback`
+      );
+      localStorage.setItem('oauthRedirectData', JSON.stringify(data));
+      const { authUrl } = await myWixClient.auth.getAuthUrl(data);
+      window.location.href = authUrl;
+    } catch (err) {
+      setError('Login failed. Please try again.');
+      console.error(err);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      const { logoutUrl } = await myWixClient.auth.logout(window.location.href);
+      Cookies.remove('session');
+      window.location.href = logoutUrl;
+    } catch (err) {
+      setError('Logout failed. Please try again.');
+      console.error(err);
+    }
+  };
+
   return (
     <div>
-      {member !== null && (
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {member !== null ? (
         <section onClick={() => (myWixClient.auth.loggedIn() ? logout() : login())}>
           <h3>
             Hello{' '}
             {myWixClient.auth.loggedIn()
-              ? member.profile?.nickname || member.profile?.slug || ''
+              ? member.profile?.nickname || member.profile?.slug || 'visitor'
               : 'visitor'}
             ,
           </h3>
           <span>{myWixClient.auth.loggedIn() ? 'Logout' : 'Login'}</span>
+        </section>
+      ) : (
+        <section>
+          <h3>Welcome, please log in.</h3>
+          <button onClick={login}>Login</button>
         </section>
       )}
     </div>

@@ -1,25 +1,40 @@
 'use client';
 
+import { members } from '@wix/members';
+import { createClient, OAuthStrategy } from '@wix/sdk';
+import Cookies from 'js-cookie';
 import moment from 'moment-timezone';
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import fileDownload from 'react-file-download';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 moment.tz.setDefault('America/New_York');
 
+const myWixClient = createClient({
+  modules: { members },
+  auth: OAuthStrategy({
+    clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID,
+    tokens: JSON.parse(Cookies.get('session') || null),
+  }),
+});
+
 const DateRangePicker = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [memberId, setMemberId] = useState(null);
+  const allowedMemberId = process.env.NEXT_PUBLIC_MEMBER_ID;
 
   useEffect(() => {
-    fetch(`https://2eab-49-204-234-214.ngrok-free.app/api/user-role`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-      });
+    const fetchMember = async () => {
+      if (myWixClient.auth.loggedIn()) {
+        const { member } = await myWixClient.members.getCurrentMember();
+        setMemberId(member?._id || null);
+      }
+    };
+    fetchMember();
   }, []);
 
   const handleStartDateChange = (date) => {
@@ -32,16 +47,17 @@ const DateRangePicker = () => {
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
+
   async function listOrders() {
     if (!startDate || !endDate) return;
     const startOfDay = moment(startDate);
     const endOfDay = moment(endDate).endOf('day');
-    const formattedStartDate = startOfDay.format('');
-    const formattedEndDate = endOfDay.format('');
+    const formattedStartDate = startOfDay.format('YYYY-MM-DD'); // Specify format
+    const formattedEndDate = endOfDay.format('YYYY-MM-DD'); // Specify format
 
     try {
       const response = await fetch(
-        `https://2eab-49-204-234-214.ngrok-free.app/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`
+        `https://fa6f-49-204-234-214.ngrok-free.app/api/reports?start=${formattedStartDate}&end=${formattedEndDate}`
       );
       if (response.ok) {
         const fileBlob = await response.blob();
@@ -56,9 +72,15 @@ const DateRangePicker = () => {
       toast.error('An error occurred during download.');
     }
   }
+
   const handleClick = () => {
     listOrders();
   };
+
+  // Render nothing if member ID doesn't match
+  if (memberId !== allowedMemberId) {
+    return <div>You do not have access to this page.</div>;
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center">

@@ -8,13 +8,42 @@ import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
-const { SITE_NAME } = process.env;
+interface ProfilePhoto {
+  id: string;
+  url: string;
+  height: number;
+  width: number;
+}
 
-export async function Navbar() {
+interface Profile {
+  nickname: string;
+  slug: string;
+  photo: ProfilePhoto;
+  title: string;
+}
+
+interface Member {
+  id: string;
+  status: string;
+  profile: Profile;
+  privacyStatus: string;
+  activityStatus: string;
+  createdDate: string;
+  updatedDate: string;
+}
+
+interface NavbarProps {
+  member?: Member | null; // Make it optional or nullable if needed
+}
+
+
+export async function Navbar({ member }: NavbarProps) {
   const fetchedMenu = await getMenu('next-js-frontend-header-menu');
 
   const menuToDisplay = fetchedMenu.slice(0, 5);
   const dropdownMenuItems = fetchedMenu.slice(5);
+  
+  const profileImageUrl = member?.profile?.photo?.url ? `https:${member.profile.photo.url}` : '';
 
   return (
     <nav className="relative flex items-center justify-between bg-white p-4 lg:px-6">
@@ -75,9 +104,24 @@ export async function Navbar() {
             </Suspense>
           </div>
           <CartModal />
-          <Link href="/login" className="ml-4">
-            <SigninButton onClick={undefined} />
-          </Link>
+          {member ? (
+            <div className="flex items-center">
+              {profileImageUrl && (
+                <img 
+                  src={profileImageUrl}
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full mr-2 cursor-pointer"
+                />
+              )}
+              <button className="text-neutral-500">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link href="/login" className="ml-4">
+              <SigninButton onClick={undefined} />
+            </Link>
+          )}
         </div>
       </div>
     </nav>
